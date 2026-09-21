@@ -1,0 +1,66 @@
+/*
+  Localizable.strings
+  MobileProject
+
+  Development-region strings file. Contains Russian text since the app's
+  target audience and course requirements use Russian UI copy; this file
+  is used as the fallback for every device locale (only one localization
+  is provided at this stage).
+*/
+
+// MARK: - Screen
+
+"form.title" = "Регистрация игрока";
+"form.register.button" = "Зарегистрировать";
+
+// MARK: - Full name field
+
+"form.fullName.label" = "ФИО";
+"form.fullName.placeholder" = "Введите фамилию, имя и отчество";
+
+// MARK: - Gender
+
+"form.gender.label" = "Пол";
+"gender.male" = "Мужской";
+"gender.female" = "Женский";
+
+// MARK: - Course
+
+"form.course.label" = "Курс";
+"course.format" = "%d курс";
+
+// MARK: - Difficulty
+
+"form.difficulty.label" = "Уровень сложности игры";
+"difficulty.format" = "Сложность: %d из 10";
+
+// MARK: - Birth date
+
+"form.birthDate.label" = "Дата рождения";
+
+// MARK: - Zodiac sign
+
+"form.zodiac.label" = "Знак зодиака";
+"zodiac.aries" = "Овен";
+"zodiac.taurus" = "Телец";
+"zodiac.gemini" = "Близнецы";
+"zodiac.cancer" = "Рак";
+"zodiac.leo" = "Лев";
+"zodiac.virgo" = "Дева";
+"zodiac.libra" = "Весы";
+"zodiac.scorpio" = "Скорпион";
+"zodiac.sagittarius" = "Стрелец";
+"zodiac.capricorn" = "Козерог";
+"zodiac.aquarius" = "Водолей";
+"zodiac.pisces" = "Рыбы";
+
+// MARK: - Validation alert
+
+"alert.validation.title" = "Проверьте данные";
+"alert.validation.emptyName" = "Пожалуйста, введите ФИО игрока.";
+"alert.ok" = "ОК";
+
+// MARK: - Result summary
+
+"form.result.title" = "Данные игрока";
+"summary.format" = "Имя: %@\nПол: %@\nКурс: %d\nСложность: %d из 10\nДата рождения: %@\nЗнак зодиака: %@";
