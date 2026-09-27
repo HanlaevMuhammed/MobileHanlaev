@@ -64,3 +64,27 @@
 
 "form.result.title" = "Данные игрока";
 "summary.format" = "Имя: %@\nПол: %@\nКурс: %d\nСложность: %d из 10\nДата рождения: %@\nЗнак зодиака: %@";
+
+// MARK: - Tabs
+
+"tab.registration" = "Регистрация";
+"tab.rules"        = "Правила игры";
+"tab.authors"      = "Авторы";
+"tab.settings"     = "Настройки";
+
+// MARK: - Authors
+
+"authors.row.role.developer" = "Разработчик";
+"authors.placeholder"        = "Автор проекта";
+
+// MARK: - Settings
+
+"settings.section.title"        = "Параметры игры";
+"settings.speed.label"          = "Скорость игры";
+"settings.speed.format"         = "Скорость: %.1f×";
+"settings.maxCockroaches.label" = "Максимум тараканов";
+"settings.maxCockroaches.format" = "Макс. тараканов: %d";
+"settings.bonusInterval.label"  = "Интервал появления бонусов";
+"settings.bonusInterval.format" = "Интервал бонусов: %.1f с";
+"settings.roundDuration.label"  = "Длительность раунда";
+"settings.roundDuration.format" = "Длительность раунда: %.0f с";

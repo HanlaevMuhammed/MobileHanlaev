@@ -36,4 +36,40 @@ enum Strings {
     static let ok = String(localized: "alert.ok")
 
     static let resultTitle = String(localized: "form.result.title")
+
+    // MARK: - Tabs
+
+    static let registrationTabTitle = String(localized: "tab.registration")
+    static let rulesTabTitle = String(localized: "tab.rules")
+    static let authorsTabTitle = String(localized: "tab.authors")
+    static let settingsTabTitle = String(localized: "tab.settings")
+
+    // MARK: - Authors
+
+    static let authorRoleDeveloper = String(localized: "authors.row.role.developer")
+    static let authorsPlaceholderRole = String(localized: "authors.placeholder")
+
+    // MARK: - Settings
+
+    static let settingsSectionTitle = String(localized: "settings.section.title")
+
+    static let speedLabel = String(localized: "settings.speed.label")
+    static func speedValue(_ value: Double) -> String {
+        String(format: String(localized: "settings.speed.format"), value)
+    }
+
+    static let maxCockroachesLabel = String(localized: "settings.maxCockroaches.label")
+    static func maxCockroachesValue(_ value: Int) -> String {
+        String(format: String(localized: "settings.maxCockroaches.format"), value)
+    }
+
+    static let bonusIntervalLabel = String(localized: "settings.bonusInterval.label")
+    static func bonusIntervalValue(_ value: Double) -> String {
+        String(format: String(localized: "settings.bonusInterval.format"), value)
+    }
+
+    static let roundDurationLabel = String(localized: "settings.roundDuration.label")
+    static func roundDurationValue(_ value: Double) -> String {
+        String(format: String(localized: "settings.roundDuration.format"), value)
+    }
 }
