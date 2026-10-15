@@ -39,6 +39,7 @@ enum Strings {
 
     // MARK: - Tabs
 
+    static let gameTabTitle = String(localized: "tab.game")
     static let registrationTabTitle = String(localized: "tab.registration")
     static let rulesTabTitle = String(localized: "tab.rules")
     static let authorsTabTitle = String(localized: "tab.authors")
@@ -72,4 +73,40 @@ enum Strings {
     static func roundDurationValue(_ value: Double) -> String {
         String(format: String(localized: "settings.roundDuration.format"), value)
     }
+
+    // MARK: - Game
+
+    static let gameMenuTitle = String(localized: "game.menu.title")
+    static let gameScoreLabel = String(localized: "game.score.label")
+    static let gameHitsLabel = String(localized: "game.hits.label")
+    static let gameMissesLabel = String(localized: "game.misses.label")
+    static func gameTimeValue(_ value: Double) -> String {
+        String(format: String(localized: "game.time.label"), value)
+    }
+    static let gameStartButton = String(localized: "game.start.button")
+    static let gameStopButton = String(localized: "game.stop.button")
+
+    // MARK: - Bug types
+
+    static let bugTypeCommon = String(localized: "bug.type.common")
+    static let bugTypeFast = String(localized: "bug.type.fast")
+    static let bugTypeRare = String(localized: "bug.type.rare")
+
+    // MARK: - Game result
+
+    static let gameResultTitle = String(localized: "result.title")
+    static func gameResultScoreValue(_ value: Int) -> String {
+        String(format: String(localized: "result.score.format"), value)
+    }
+    static func gameResultHitsValue(_ value: Int) -> String {
+        String(format: String(localized: "result.hits.format"), value)
+    }
+    static func gameResultMissesValue(_ value: Int) -> String {
+        String(format: String(localized: "result.misses.format"), value)
+    }
+    static func gameResultAccuracyValue(_ value: Double) -> String {
+        String(format: String(localized: "result.accuracy.format"), value)
+    }
+    static let gameResultPlayAgainButton = String(localized: "result.playAgain.button")
+    static let gameResultBackButton = String(localized: "result.back.button")
 }

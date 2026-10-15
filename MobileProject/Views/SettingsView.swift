@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject private var settings = GameSettings()
+    @EnvironmentObject private var settings: GameSettings
 
     var body: some View {
         Form {
@@ -60,4 +60,5 @@ struct SettingsView: View {
     NavigationStack {
         SettingsView()
     }
+    .environmentObject(GameSettings())
 }

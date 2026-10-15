@@ -67,6 +67,7 @@
 
 // MARK: - Tabs
 
+"tab.game"         = "Игра";
 "tab.registration" = "Регистрация";
 "tab.rules"        = "Правила игры";
 "tab.authors"      = "Авторы";
@@ -88,3 +89,29 @@
 "settings.bonusInterval.format" = "Интервал бонусов: %.1f с";
 "settings.roundDuration.label"  = "Длительность раунда";
 "settings.roundDuration.format" = "Длительность раунда: %.0f с";
+
+// MARK: - Game screen
+
+"game.menu.title"   = "Игра «Жуки»";
+"game.score.label"  = "Очки";
+"game.hits.label"   = "Попадания";
+"game.misses.label" = "Промахи";
+"game.time.label"   = "Осталось: %.0f с";
+"game.start.button" = "Начать игру";
+"game.stop.button"  = "Остановить";
+
+// MARK: - Bug types
+
+"bug.type.common" = "Обычный";
+"bug.type.fast"   = "Быстрый";
+"bug.type.rare"   = "Редкий";
+
+// MARK: - Game result
+
+"result.title"            = "Раунд завершён";
+"result.score.format"     = "Очки: %d";
+"result.hits.format"      = "Попадания: %d";
+"result.misses.format"    = "Промахи: %d";
+"result.accuracy.format"  = "Точность: %.1f%%";
+"result.playAgain.button" = "Играть снова";
+"result.back.button"      = "В меню";

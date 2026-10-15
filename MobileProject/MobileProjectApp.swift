@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MobileProjectApp: App {
+    @StateObject private var settings = GameSettings()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(settings)
         }
     }
 }
