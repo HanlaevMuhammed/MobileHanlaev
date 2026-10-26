@@ -3,25 +3,107 @@
 //  MobileProject
 //
 
+import SwiftData
 import SwiftUI
 
 struct GameView: View {
     @StateObject private var engine: GameEngine
+    private let settings: GameSettings
+
+    @Environment(\.modelContext) private var modelContext
+    @AppStorage("selectedPlayerName") private var selectedPlayerName: String = ""
+
+    @State private var didSaveThisRound = false
+    @State private var isShowingPlayerSelection = false
+    @State private var isShowingSaveAlert = false
+    @State private var saveAlertMessage = ""
 
     init(settings: GameSettings) {
+        self.settings = settings
         _engine = StateObject(wrappedValue: GameEngine(settings: settings))
     }
 
     var body: some View {
         VStack(spacing: 16) {
+            playerBar
             statsBar
             field
             controlButton
         }
         .padding()
         .navigationTitle(Strings.gameMenuTitle)
+        // GameEngine.swift is intentionally left untouched by this stage, so the score is saved
+        // here by observing its published `state` rather than from inside the engine itself.
+        .onChange(of: engine.state) { _, newState in
+            if newState == .finished {
+                saveScoreIfNeeded()
+            }
+        }
         .sheet(isPresented: isShowingResult) {
             GameResultView(engine: engine)
+        }
+        .sheet(isPresented: $isShowingPlayerSelection) {
+            PlayerSelectionView()
+        }
+        .alert(Strings.gameSaveError, isPresented: $isShowingSaveAlert) {
+            Button(Strings.ok, role: .cancel) {}
+        } message: {
+            Text(saveAlertMessage)
+        }
+    }
+
+    // MARK: - Player bar
+
+    private var playerBar: some View {
+        HStack {
+            if selectedPlayerName.isEmpty {
+                Text(Strings.playerSelectionNone)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text(Strings.playerSelectionCurrent(selectedPlayerName))
+            }
+            Spacer()
+            Button(Strings.playerSelectionChange) {
+                isShowingPlayerSelection = true
+            }
+            .font(.subheadline)
+        }
+    }
+
+    // MARK: - Score persistence
+
+    /// Saves exactly once per round: `didSaveThisRound` is reset by controlButton right before
+    /// start(), and this guards against the sheet or this onChange firing more than once for the
+    /// same .finished state (e.g. if the result sheet re-renders).
+    private func saveScoreIfNeeded() {
+        guard !didSaveThisRound else { return }
+        didSaveThisRound = true
+
+        guard !selectedPlayerName.isEmpty else {
+            saveAlertMessage = Strings.gameNoPlayer
+            isShowingSaveAlert = true
+            return
+        }
+
+        let totalAttempts = engine.hits + engine.misses
+        let accuracy = totalAttempts > 0 ? Double(engine.hits) / Double(totalAttempts) * 100 : 0
+
+        let record = ScoreRecord(
+            playerName: selectedPlayerName,
+            score: engine.score,
+            hits: engine.hits,
+            misses: engine.misses,
+            accuracy: accuracy,
+            difficulty: settings.maxCockroaches,
+            gameSpeed: settings.gameSpeed,
+            roundDuration: settings.roundDuration
+        )
+        modelContext.insert(record)
+        do {
+            try modelContext.save()
+        } catch {
+            saveAlertMessage = Strings.gameSaveError
+            isShowingSaveAlert = true
         }
     }
 
@@ -113,6 +195,7 @@ struct GameView: View {
             if engine.state == .running {
                 engine.stop()
             } else {
+                didSaveThisRound = false
                 engine.start()
             }
         } label: {
@@ -127,4 +210,5 @@ struct GameView: View {
     NavigationStack {
         GameView(settings: GameSettings())
     }
+    .modelContainer(for: ScoreRecord.self, inMemory: true)
 }

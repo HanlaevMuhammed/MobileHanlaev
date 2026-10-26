@@ -40,6 +40,7 @@ enum Strings {
     // MARK: - Tabs
 
     static let gameTabTitle = String(localized: "tab.game")
+    static let recordsTabTitle = String(localized: "tab.records")
     static let registrationTabTitle = String(localized: "tab.registration")
     static let rulesTabTitle = String(localized: "tab.rules")
     static let authorsTabTitle = String(localized: "tab.authors")
@@ -109,4 +110,35 @@ enum Strings {
     }
     static let gameResultPlayAgainButton = String(localized: "result.playAgain.button")
     static let gameResultBackButton = String(localized: "result.back.button")
+
+    // MARK: - Records
+
+    static let recordsTitle = String(localized: "records.title")
+    static let recordsEmpty = String(localized: "records.empty")
+    static func recordsDifficultyValue(_ value: Int) -> String {
+        String(format: String(localized: "records.difficulty.format"), value)
+    }
+    static func recordsDateValue(_ value: String) -> String {
+        String(format: String(localized: "records.date.format"), value)
+    }
+    static let recordsSortLabel = String(localized: "records.sort.label")
+    static let recordsSortByScore = String(localized: "records.sort.byScore")
+    static let recordsSortByDate = String(localized: "records.sort.byDate")
+    static let recordsFilterLabel = String(localized: "records.filter.label")
+    static let recordsFilterAll = String(localized: "records.filter.all")
+
+    // MARK: - Player selection
+
+    static let playerSelectionTitle = String(localized: "player.selection.title")
+    static let playerSelectionNew = String(localized: "player.selection.new")
+    static func playerSelectionCurrent(_ name: String) -> String {
+        String(format: String(localized: "player.selection.current.format"), name)
+    }
+    static let playerSelectionChange = String(localized: "player.selection.change")
+    static let playerSelectionNone = String(localized: "player.selection.none")
+
+    // MARK: - Game / save errors
+
+    static let gameSaveError = String(localized: "game.save.error")
+    static let gameNoPlayer = String(localized: "game.noPlayer")
 }

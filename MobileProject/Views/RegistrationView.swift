@@ -6,6 +6,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @AppStorage("selectedPlayerName") private var selectedPlayerName: String = ""
+
     @State private var fullName: String = ""
     @State private var gender: Gender = .male
     @State private var course: Int = 1
@@ -165,6 +167,7 @@ struct RegistrationView: View {
             birthDate: birthDate,
             zodiacSign: currentZodiacSign
         )
+        selectedPlayerName = trimmedName
     }
 }
 

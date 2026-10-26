@@ -68,6 +68,7 @@
 // MARK: - Tabs
 
 "tab.game"         = "Игра";
+"tab.records"      = "Рекорды";
 "tab.registration" = "Регистрация";
 "tab.rules"        = "Правила игры";
 "tab.authors"      = "Авторы";
@@ -99,6 +100,8 @@
 "game.time.label"   = "Осталось: %.0f с";
 "game.start.button" = "Начать игру";
 "game.stop.button"  = "Остановить";
+"game.save.error"   = "Не удалось сохранить результат";
+"game.noPlayer"     = "Сначала выберите игрока";
 
 // MARK: - Bug types
 
@@ -115,3 +118,23 @@
 "result.accuracy.format"  = "Точность: %.1f%%";
 "result.playAgain.button" = "Играть снова";
 "result.back.button"      = "В меню";
+
+// MARK: - Records
+
+"records.title"            = "Рекорды";
+"records.empty"            = "Рекордов пока нет. Сыграйте первый раунд!";
+"records.difficulty.format" = "Сложность: %d";
+"records.date.format"       = "Дата: %@";
+"records.sort.label"       = "Сортировка";
+"records.sort.byScore"     = "По очкам";
+"records.sort.byDate"      = "По дате";
+"records.filter.label"     = "Игрок";
+"records.filter.all"       = "Все игроки";
+
+// MARK: - Player selection
+
+"player.selection.title"          = "Выбор игрока";
+"player.selection.new"            = "Новый игрок";
+"player.selection.current.format" = "Игрок: %@";
+"player.selection.change"         = "Сменить игрока";
+"player.selection.none"           = "Игрок не выбран";

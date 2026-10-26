@@ -5,6 +5,7 @@
 //  Created by Мухаммед Ханлаев on 14.09.2026.
 //
 
+import SwiftData
 import SwiftUI
 
 /// The native TabView's built-in bottom bar only supports tap-to-switch, not swipe-to-switch, so
@@ -14,6 +15,7 @@ import SwiftUI
 /// TabView's `.tag` values self-documenting at every call site.
 enum AppTab: Int, CaseIterable, Identifiable {
     case game
+    case records
     case rules
     case authors
     case settings
@@ -24,6 +26,7 @@ enum AppTab: Int, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .game: return Strings.gameTabTitle
+        case .records: return Strings.recordsTabTitle
         case .rules: return Strings.rulesTabTitle
         case .authors: return Strings.authorsTabTitle
         case .settings: return Strings.settingsTabTitle
@@ -34,6 +37,7 @@ enum AppTab: Int, CaseIterable, Identifiable {
     var systemImage: String {
         switch self {
         case .game: return "ladybug.fill"
+        case .records: return "trophy.fill"
         case .rules: return "doc.richtext"
         case .authors: return "person.2"
         case .settings: return "gearshape"
@@ -52,6 +56,11 @@ struct ContentView: View {
                 GameView(settings: settings)
             }
             .tag(AppTab.game)
+
+            NavigationStack {
+                RecordsView()
+            }
+            .tag(AppTab.records)
 
             NavigationStack {
                 RulesView()
@@ -119,4 +128,5 @@ private struct TabBar: View {
 #Preview {
     ContentView()
         .environmentObject(GameSettings())
+        .modelContainer(for: ScoreRecord.self, inMemory: true)
 }
